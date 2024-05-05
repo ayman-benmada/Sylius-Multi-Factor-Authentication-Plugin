@@ -4,13 +4,26 @@
     Multi factor authentication plugin for ShopUser and AdminUser
 </p>
 
+## Details
+
+**Activation of MFA on the eshop**
+![presentation photo](https://github.com/ayman-benmada/Sylius-Multi-Factor-Authentication-Plugin/blob/main/src/Resources/public/image/presentation-1.png?raw=true)
+
+**MFA verification after login on the eshop**
+![presentation photo](https://github.com/ayman-benmada/Sylius-Multi-Factor-Authentication-Plugin/blob/main/src/Resources/public/image/presentation-2.png?raw=true)
+
+**Activation of MFA on the backoffice**
+![presentation photo](https://github.com/ayman-benmada/Sylius-Multi-Factor-Authentication-Plugin/blob/main/src/Resources/public/image/presentation-3.png?raw=true)
+
+**MFA verification after login on the backoffice**
+![presentation photo](https://github.com/ayman-benmada/Sylius-Multi-Factor-Authentication-Plugin/blob/main/src/Resources/public/image/presentation-4.png?raw=true)
 
 ## Installation
 
 Require plugin with composer :
 
 ```bash
-composer require abenmada/multi-factor-authentication
+composer require abenmada/multi-factor-authentication-plugin
 ```
 
 ⚠️  Please delete the automatically generated files **config/packages/scheb_2fa.yaml** and **config/routes/scheb_2fa.yaml**.
