@@ -1,0 +1,13 @@
+abenmada_multi_factor_authentication_plugin_admin_user_enable:
+    path: /multi-factor-authentication/enable
+    methods: [ GET, POST, PUT ]
+    defaults:
+        _controller: abenmada.multi_factor_authentication_plugin.controller.action.admin_user_toggle_enable
+
+abenmada_multi_factor_authentication_plugin_admin_user_login:
+    path: /multi-factor-authentication/login
+    defaults:
+        _controller: "scheb_two_factor.form_controller:form"
+
+abenmada_multi_factor_authentication_plugin_admin_user_login_check:
+    path: /multi-factor-authentication/login-check

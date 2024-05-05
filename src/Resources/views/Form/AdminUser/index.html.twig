@@ -1,0 +1,16 @@
+{% extends '@SyliusAdmin/layout.html.twig' %}
+
+{%- block title -%}{{ 'abenmada_multi_factor_authentication_plugin.ui.multi_factor_authentication'|trans }}{{ parent() }}{%- endblock -%}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+    <div class="ui stackable two column grid">
+        <div class="sixteen wide column">
+            {% include '@MultiFactorAuthenticationPlugin/Form/AdminUser/_header.html.twig' %}
+        </div>
+    </div>
+
+    {% include '@MultiFactorAuthenticationPlugin/Form/AdminUser/_breadcrumb.html.twig' %}
+    {% include '@MultiFactorAuthenticationPlugin/Form/AdminUser/_content.html.twig' %}
+{% endblock %}

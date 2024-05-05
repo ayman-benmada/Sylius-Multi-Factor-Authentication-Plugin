@@ -1,0 +1,11 @@
+scheb_two_factor:
+    security_tokens:
+        - Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken
+        - Symfony\Component\Security\Guard\Token\PostAuthenticationGuardToken
+        - Symfony\Component\Security\Http\Authenticator\Token\PostAuthenticationToken
+    google:
+        enabled: true
+        digits: 6
+        issuer: '%abenmada_multi_factor_authentication_plugin_issuer%'           # Issuer name used in QR code
+        window: 1                                                                # How many codes before/after the current one would be accepted as valid
+        template: "@MultiFactorAuthenticationPlugin/Security/index.html.twig"    # Template used to render the authentication form

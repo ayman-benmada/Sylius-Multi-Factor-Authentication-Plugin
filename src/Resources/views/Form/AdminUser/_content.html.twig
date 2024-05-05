@@ -1,0 +1,40 @@
+{% form_theme form '@SyliusAdmin/Form/theme.html.twig' %}
+
+{% block content %}
+    <div class="ui segment">
+        {{ form_start(form, {'action': path('abenmada_multi_factor_authentication_plugin_admin_user_enable')}) }}
+        {{ form_errors(form) }}
+
+        <input type="hidden" name="_method" value="PUT"/>
+
+        <div class="ui segment">
+            <div class="ui form">
+                <div class="field">
+                    {{ form_row(form.mfaSecret) }}
+                </div>
+                <div class="field">
+                    {{ form_row(form.mfaCode) }}
+                </div>
+            </div>
+
+            <div>
+                <img src="{{ qrCode }}" alt="{{ 'abenmada_multi_factor_authentication_plugin.ui.qr_code' | trans }}" />
+            </div>
+
+            {% if activateButton %}
+                <button type="submit" id="abenmada_multi_factor_authentication_plugin_admin_user_two_factor_authentication_type_disable" name="abenmada_multi_factor_authentication_plugin_admin_user_two_factor_authentication_type[disable]" class="ui labeled icon primary button">
+                    <i class="save icon"></i>
+                    {{ 'abenmada_multi_factor_authentication_plugin.ui.disable_multi_factor_authentication'|trans }}
+                </button>
+            {% else %}
+                <button type="submit" class="ui labeled icon primary button">
+                    <i class="save icon"></i>
+                    {{ 'abenmada_multi_factor_authentication_plugin.ui.enable_multi_factor_authentication'|trans }}
+                </button>
+            {% endif %}
+
+            {{ form_row(form._token) }}
+            {{ form_end(form, {'render_rest': false}) }}
+        </div>
+    </div>
+{% endblock %}

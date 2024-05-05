@@ -1,0 +1,44 @@
+{% extends '@SyliusShop/Account/layout.html.twig' %}
+
+{% form_theme form '@SyliusShop/Form/theme.html.twig' %}
+
+{% block title %}{{ 'abenmada_multi_factor_authentication_plugin.ui.multi_factor_authentication'|trans }} | {{ parent() }}{% endblock %}
+
+{% block breadcrumb %}
+    <div class="ui breadcrumb">
+        <a href="{{ path('sylius_shop_homepage') }}" class="section">{{ 'sylius.ui.home'|trans }}</a>
+        <div class="divider"> / </div>
+        <a href="{{ path('sylius_shop_account_dashboard') }}" class="section">{{ 'sylius.ui.my_account'|trans }}</a>
+        <div class="divider"> / </div>
+        <div class="active section">{{ 'abenmada_multi_factor_authentication_plugin.ui.multi_factor_authentication'|trans }}</div>
+    </div>
+{% endblock %}
+
+{% block subcontent %}
+    <div class="ui segment">
+        {{ form_start(form, {'action': path('sylius_shop_account_abenmada_multi_factor_authentication_plugin_shop_user_enable'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
+
+        <h1 class="ui dividing header">
+            {{ 'abenmada_multi_factor_authentication_plugin.ui.multi_factor_authentication'|trans }}
+            <div class="sub header">{{ 'abenmada_multi_factor_authentication_plugin.ui.enable_multi_factor_authentication_to_enhance_the_security_of_your_account_make_sure_to_use_up_to_date_information_and_a_valid_email_address'|trans }}</div>
+        </h1>
+
+        {{ form_row(form.mfaSecret) }}
+        {{ form_row(form.mfaCode) }}
+
+        <div>
+            <img src="{{ qrCode }}" alt="{{ 'abenmada_multi_factor_authentication_plugin.ui.qr_code' | trans }}" />
+        </div>
+
+        {% if activateButton %}
+            {{ form_row(form.disableBtn, {'attr': {'class': 'ui large primary button'}}) }}
+        {% else %}
+            <button type="submit" {{ sylius_test_html_attribute('save-changes') }} class="ui large primary button">
+                {{ 'abenmada_multi_factor_authentication_plugin.ui.enable_multi_factor_authentication' | trans }}
+            </button>
+        {% endif %}
+
+        {{ form_row(form._token) }}
+        {{ form_end(form, {'render_rest': false}) }}
+    </div>
+{% endblock %}

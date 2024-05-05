@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    Abenmada\MultiFactorAuthenticationPlugin\:
+        resource: '../../*'
+        exclude: '../../{Service,Form,Fixture}'
+
+imports:
+    - { resource: "packages/scheb_two_factor.yaml" }
+    - { resource: "packages/controller.yaml" }
+    - { resource: "packages/form.yaml" }

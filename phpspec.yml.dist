@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Abenmada\MultiFactorAuthenticationPlugin
+        psr4_prefix: Abenmada\MultiFactorAuthenticationPlugin

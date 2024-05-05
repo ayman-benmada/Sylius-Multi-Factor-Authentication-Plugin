@@ -1,0 +1,18 @@
+services:
+    abenmada.multi_factor_authentication_plugin.form.type.admin_user_toggle_enable:
+        class: Abenmada\MultiFactorAuthenticationPlugin\Form\Type\AdminUser\ToggleEnableType
+        arguments:
+            - '@translator'
+            - '%sylius.model.admin_user.class%'
+            - [ 'sylius' ]
+        tags:
+            - { name: form.type }
+
+    abenmada.multi_factor_authentication_plugin.form.type.shop_user_toggle_enable:
+        class: Abenmada\MultiFactorAuthenticationPlugin\Form\Type\ShopUser\ToggleEnableType
+        arguments:
+            - '@translator'
+            - '%sylius.model.shop_user.class%'
+            - [ 'sylius' ]
+        tags:
+            - { name: form.type }

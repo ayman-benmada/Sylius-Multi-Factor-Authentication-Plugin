@@ -1,0 +1,36 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block top %}{% endblock %}
+
+{% block content %}
+    <div class="vh-100">
+        <div class="center-vertically">
+            {% include '@SyliusShop/Login/_header.html.twig' %}
+
+            {{ sylius_template_event('sylius.shop.login.after_content_header') }}
+
+            <div class="row">
+                <div class="col-12 col-md-6 mb-3 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <form method="post" action="{{ checkPathUrl ? checkPathUrl: path(checkPathRoute) }}" class="loadable" novalidate="">
+                                <div class="form-group">
+                                    <label for="_auth_code" class="form-label required">{{ 'abenmada_multi_factor_authentication_plugin.ui.multi_factor_authentication_code' | trans }}</label>
+                                    <input class="form-control {% if authenticationError %}is-invalid{% endif %}" id="_auth_code" type="text" name="{{ authCodeParameterName }}" autocomplete="one-time-code" required="required" autofocus/>
+
+                                    {% if authenticationError %}
+                                        <div class="invalid-feedback">{{ authenticationError | trans(authenticationErrorData, 'SchebTwoFactorBundle') }}</div>
+                                    {% endif %}
+                                </div>
+                                <input type="submit" class="btn btn-primary" value="{{ 'abenmada_multi_factor_authentication_plugin.ui.login' | trans }}"/>
+                                <a class="btn btn-link btn-sm" href="{{ logoutPath }}">{{ 'abenmada_multi_factor_authentication_plugin.ui.cancel' | trans }}</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

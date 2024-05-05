@@ -1,0 +1,28 @@
+services:
+    abenmada.multi_factor_authentication_plugin.controller.action.admin_user_toggle_enable:
+        class: Abenmada\MultiFactorAuthenticationPlugin\Controller\Action\AdminUser\ToggleEnableAction
+        public: true
+        arguments:
+            - '@form.factory'
+            - '@scheb_two_factor.security.google_authenticator'
+            - '@session.flash_bag'
+            - '@scheb_two_factor.qr_code_generator'
+            - '@sylius.manager.admin_user'
+            - '@translator'
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+        tags: [ 'controller.service_arguments' ]
+
+    abenmada.multi_factor_authentication_plugin.controller.action.shop_user_toggle_enable:
+        class: Abenmada\MultiFactorAuthenticationPlugin\Controller\Action\ShopUser\ToggleEnableAction
+        public: true
+        arguments:
+            - '@form.factory'
+            - '@scheb_two_factor.security.google_authenticator'
+            - '@session.flash_bag'
+            - '@scheb_two_factor.qr_code_generator'
+            - '@sylius.manager.shop_user'
+            - '@translator'
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+        tags: [ 'controller.service_arguments' ]

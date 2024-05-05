@@ -1,0 +1,48 @@
+{% extends '@SyliusUi/Layout/centered.html.twig' %}
+
+{% block title %}{{ sylius.channel.name }} | {{ 'sylius.ui.administration_panel_login'|trans }}{% endblock %}
+
+{% block stylesheets %}
+    {{ sylius_template_event('sylius.admin.layout.stylesheets') }}
+{% endblock %}
+
+{% block content %}
+    {% import '@SyliusUi/Macro/messages.html.twig' as messages %}
+
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            {% if last_error is defined %}
+                <div class="ui left aligned basic segment">
+                    {{ messages.error(last_error.messageKey) }}
+                </div>
+            {% endif %}
+
+            <form action="{{ checkPathUrl ? checkPathUrl: path(checkPathRoute) }}" method="post" class="ui large loadable form" novalidate>
+                <div class="ui left aligned very padded segment">
+                    <div class="required field">
+                        <label for="_auth_code" class="required">{{ 'abenmada_multi_factor_authentication_plugin.ui.multi_factor_authentication_code' | trans }}</label>
+
+                        {% if authenticationError %}
+                            <input id="_auth_code" type="text" name="{{ authCodeParameterName }}" autocomplete="one-time-code" required="required" autofocus/>
+                            <div class="ui red pointing label sylius-validation-error">{{ authenticationError | trans(authenticationErrorData, 'SchebTwoFactorBundle') }}</div>
+                        {% else %}
+                            <input id="_auth_code" type="text" name="{{ authCodeParameterName }}" autocomplete="one-time-code" required="required" autofocus/>
+                        {% endif %}
+
+                        <div class="ui buttons" style="margin-top: 20px">
+                            <button type="submit" class="ui primary button">
+                                {{ 'abenmada_multi_factor_authentication_plugin.ui.login' | trans }}
+                            </button>
+
+                            <a class="ui button" href="{{ logoutPath }}">{{ 'abenmada_multi_factor_authentication_plugin.ui.cancel' | trans }}</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ sylius_template_event('sylius.admin.layout.javascripts') }}
+{% endblock %}

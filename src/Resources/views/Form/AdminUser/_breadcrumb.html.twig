@@ -1,0 +1,8 @@
+{% import '@SyliusAdmin/Macro/breadcrumb.html.twig' as breadcrumb %}
+
+{% set breadcrumbs = [
+    { label: 'sylius.ui.administration'|trans, url: path('sylius_admin_dashboard') },
+    { label: 'abenmada_multi_factor_authentication_plugin.ui.multi_factor_authentication'|trans }
+] %}
+
+{{ breadcrumb.crumble(breadcrumbs) }}

@@ -1,0 +1,5 @@
+{% if 'abenmada_multi_factor_authentication_plugin_admin_user_login' is same as app.request.attributes.get('_route') %}
+    {% include '@MultiFactorAuthenticationPlugin/Security/AdminUser/index.html.twig' %}
+{% else %}
+    {% include '@MultiFactorAuthenticationPlugin/Security/ShopUser/index.html.twig' %}
+{% endif %}
