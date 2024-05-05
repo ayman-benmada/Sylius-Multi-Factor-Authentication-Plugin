@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Abenmada\MultiFactorAuthenticationPlugin\Controller\Action;
 
-use App\Entity\User\AdminUser;
 use Doctrine\ORM\EntityManagerInterface;
 use Endroid\QrCode\QrCode;
 use function in_array;
@@ -45,7 +44,6 @@ class ToggleEnableAction extends AbstractController
         $form = $this->formFactory->create($formType, $resource);
 
         if (in_array($request->getMethod(), ['POST', 'PUT', 'PATCH'], true) && $form->handleRequest($request)->isValid()) {
-            /** @var AdminUser $resource */
             $resource = $form->getData();
 
             $mfaCode = $form['mfaCode']->getData();
@@ -87,9 +85,9 @@ class ToggleEnableAction extends AbstractController
         );
     }
 
-    private function getQrCode(TwoFactorInterface $adminUser): QrCode
+    private function getQrCode(TwoFactorInterface $resource): QrCode
     {
-        $qrCode = $this->qrCodeGenerator->getGoogleAuthenticatorQrCode($adminUser);
+        $qrCode = $this->qrCodeGenerator->getGoogleAuthenticatorQrCode($resource);
         $qrCode->setSize(180);
 
         return $qrCode;

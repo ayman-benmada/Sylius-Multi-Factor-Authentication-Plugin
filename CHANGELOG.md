@@ -4,4 +4,4 @@
 
 #### Details
 
-- TODO
+- Enable 2FA for ShopUser and AdminUser

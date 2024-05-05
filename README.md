@@ -7,27 +7,13 @@
 
 ## Installation
 
-Add in `composer.json`
+Require plugin with composer :
 
-```json
-{
-    "repositories": [
-        {
-            "type": "path",
-            "url": "plugin/MultiFactorAuthenticationPlugin",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
-    "require": {
-        "scheb/2fa-bundle": "v5.13.2",
-        "scheb/2fa-google-authenticator": "^5.13",
-        "scheb/2fa-qr-code": "^5.13",
-        "abenmada/multi-factor-authentication-plugin": "@dev"
-    }
-}
+```bash
+composer require abenmada/multi-factor-authentication
 ```
+
+⚠️  Please delete the automatically generated files **config/packages/scheb_2fa.yaml** and **config/routes/scheb_2fa.yaml**.
 
 Change your `config/bundles.php` file to add the line for the plugin :
 
@@ -36,8 +22,8 @@ Change your `config/bundles.php` file to add the line for the plugin :
 
 return [
     //..
-    Scheb\TwoFactorBundle\SchebTwoFactorBundle::class => ['all' => true],
     Abenmada\MultiFactorAuthenticationPlugin\MultiFactorAuthenticationPlugin::class => ['all' => true],
+    Scheb\TwoFactorBundle\SchebTwoFactorBundle::class => ['all' => true],
 ];
 ```
 
@@ -205,5 +191,3 @@ Install the assets :
 ```bash
 bin/console assets:install --ansi
 ```
-
-⚠️  Please delete the automatically generated files **config/packages/scheb_2fa.yaml** and **config/routes/scheb_2fa.yaml**.

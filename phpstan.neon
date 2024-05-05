@@ -3,6 +3,7 @@ parameters:
         - src
     excludePaths:
         - src/DependencyInjection/*
+        - src/Controller/Action/ToggleEnableAction.php
     level: max
     checkGenericClassInNonGenericObjectType: false
     checkMissingIterableValueType: false

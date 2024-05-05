@@ -11,6 +11,9 @@
     ],
     "require": {
         "php": "^8.0",
+        "scheb/2fa-bundle": "v5.13.2",
+        "scheb/2fa-google-authenticator": "^5.13",
+        "scheb/2fa-qr-code": "^5.13",
         "sylius/sylius": "^1.12"
     },
     "require-dev": {
