@@ -7,15 +7,10 @@
 {% endblock %}
 
 {% block content %}
-    {% import '@SyliusUi/Macro/messages.html.twig' as messages %}
-
     <div class="ui middle aligned center aligned grid">
         <div class="column">
-            {% if last_error is defined %}
-                <div class="ui left aligned basic segment">
-                    {{ messages.error(last_error.messageKey) }}
-                </div>
-            {% endif %}
+
+            {% include "@SyliusAdmin/Security/_logo.html.twig" %}
 
             <form action="{{ checkPathUrl ? checkPathUrl: path(checkPathRoute) }}" method="post" class="ui large loadable form" novalidate>
                 <div class="ui left aligned very padded segment">
@@ -28,15 +23,15 @@
                         {% else %}
                             <input id="_auth_code" type="text" name="{{ authCodeParameterName }}" autocomplete="one-time-code" required="required" autofocus/>
                         {% endif %}
-
-                        <div class="ui buttons" style="margin-top: 20px">
-                            <button type="submit" class="ui primary button">
-                                {{ 'abenmada_multi_factor_authentication_plugin.ui.login' | trans }}
-                            </button>
-
-                            <a class="ui button" href="{{ logoutPath }}">{{ 'abenmada_multi_factor_authentication_plugin.ui.cancel' | trans }}</a>
-                        </div>
                     </div>
+
+                    <input type="hidden" name="_csrf_admin_security_token" value="{{ csrf_token('admin_authenticate') }}">
+
+                    <button type="submit" class="ui fluid large primary submit button">{{ 'abenmada_multi_factor_authentication_plugin.ui.login' | trans }}</button>
+
+                    <div class="ui divider"></div>
+
+                    <a href="{{ logoutPath }}" class="ui fluid button">{{ 'abenmada_multi_factor_authentication_plugin.ui.cancel' | trans }}</a>
                 </div>
             </form>
         </div>
