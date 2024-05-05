@@ -6,16 +6,16 @@
 
 ## Details
 
-**Activation of MFA on the eshop**
+### MFA activation on the eshop
 ![presentation photo](https://github.com/ayman-benmada/Sylius-Multi-Factor-Authentication-Plugin/blob/main/src/Resources/public/image/presentation-1.png?raw=true)
 
-**MFA verification after login on the eshop**
+### MFA verification after login on the eshop
 ![presentation photo](https://github.com/ayman-benmada/Sylius-Multi-Factor-Authentication-Plugin/blob/main/src/Resources/public/image/presentation-2.png?raw=true)
 
-**Activation of MFA on the backoffice**
+### MFA activation on the backoffice
 ![presentation photo](https://github.com/ayman-benmada/Sylius-Multi-Factor-Authentication-Plugin/blob/main/src/Resources/public/image/presentation-3.png?raw=true)
 
-**MFA verification after login on the backoffice**
+### MFA verification after login on the backoffice
 ![presentation photo](https://github.com/ayman-benmada/Sylius-Multi-Factor-Authentication-Plugin/blob/main/src/Resources/public/image/presentation-4.png?raw=true)
 
 ## Installation
