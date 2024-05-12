@@ -1,5 +1,5 @@
 {
-    "name": "abenmada/multi-factor-authentication-plugin",
+    "name": "abenmada/sylius-multi-factor-authentication-plugin",
     "type": "sylius-plugin",
     "description": "Multi factor authentication plugin for ShopUser and AdminUser.",
     "keywords": ["sylius", "sylius-plugin", "symfony", "e-commerce", "multi-factor-authentification"],

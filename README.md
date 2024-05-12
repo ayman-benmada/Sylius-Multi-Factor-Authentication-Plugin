@@ -1,4 +1,4 @@
-<h1>Multi factor authentication plugin</h1>
+<h1>Sylius Multi factor authentication Plugin</h1>
 
 <p>
     Multi factor authentication plugin for ShopUser and AdminUser
@@ -23,7 +23,7 @@
 Require plugin with composer :
 
 ```bash
-composer require abenmada/multi-factor-authentication-plugin
+composer require abenmada/sylius-multi-factor-authentication-plugin
 ```
 
 ⚠️  Please delete the automatically generated files **config/packages/scheb_2fa.yaml** and **config/routes/scheb_2fa.yaml**.
